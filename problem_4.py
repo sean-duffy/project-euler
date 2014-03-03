@@ -1,5 +1,5 @@
-min_limit = 100
-max_limit = 999
+min_limit = 10
+max_limit = 99
 largest = 0
 
 def is_palindrome(n):
