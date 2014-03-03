@@ -1,18 +1,16 @@
-def prime(n):
-	prime = True
-	for i in range(2, n):
-		if n % i == 0:
-			prime = False
-	if prime:
-		return True
-	else:
-		return False
+def sieve(n):
+    a = [True] * n
+    a[0] = a[1] = False
 
-primes = []
-i = 3
+    for (i, is_prime) in enumerate(a):
+        if is_prime:
+            yield i
+            for n in xrange(i * i, n, i):
+                a[n] = False
 
-while len(primes) < 10002:
-	if prime(i):
-		primes.append(i)
-		print len(primes), '=', i
-	i += 2
+for i, p in enumerate(sieve(500000)):
+    if i == 10001 - 1:
+        print p
+        break
+
+print i
